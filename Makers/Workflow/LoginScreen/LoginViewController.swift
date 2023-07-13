@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LoginViewController: UIViewController {
     
@@ -64,6 +65,7 @@ class LoginViewController: UIViewController {
         return view
     } ()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -80,7 +82,7 @@ class LoginViewController: UIViewController {
         view.addSubview(lineImage)
         view.addSubview(googleButton)
         
-
+        
         let topOffset: CGFloat = 0.2
         
         logoImage.snp.makeConstraints { make in
@@ -132,8 +134,11 @@ class LoginViewController: UIViewController {
     @objc private func googleButtonPressed() {
         googleButton.backgroundColor = .blue
         googleButton.setTitleColor(.white, for: .normal)
-        let nextVC = GoogleLoginViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self = self else {return}
+            let nextVC = GoogleLoginViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        
     }
-    
 }

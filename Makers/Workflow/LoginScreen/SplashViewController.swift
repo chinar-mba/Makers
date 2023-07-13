@@ -80,6 +80,7 @@ class SplashViewController: UIViewController {
        func navigateToNextScreen() {
            let nextVC = LoginViewController()
            self.present(nextVC, animated: true, completion: nil)
+           
         }
 
 }

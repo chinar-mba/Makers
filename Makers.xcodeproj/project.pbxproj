@@ -14,6 +14,7 @@
 		666F16642A5D88C8004C2BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666F16622A5D88C8004C2BB9 /* LaunchScreen.storyboard */; };
 		66796B0F2A5E236E00B2880E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66796B0E2A5E236E00B2880E /* LoginViewController.swift */; };
 		66CB77BC2A5FA68100193128 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB77BB2A5FA68100193128 /* EmailLoginViewController.swift */; };
+		66CB77BE2A5FA73B00193128 /* GoogleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB77BD2A5FA73B00193128 /* GoogleLoginViewController.swift */; };
 		F865EEAD5770B30030E55295 /* Pods_Makers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089311265764A148F4AEEAD4 /* Pods_Makers.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		666F16652A5D88C8004C2BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66796B0E2A5E236E00B2880E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		66CB77BB2A5FA68100193128 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
+		66CB77BD2A5FA73B00193128 /* GoogleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginViewController.swift; sourceTree = "<group>"; };
 		7E7C5FAA775CC1AB34DA39B7 /* Pods-Makers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makers.release.xcconfig"; path = "Target Support Files/Pods-Makers/Pods-Makers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				666F165B2A5D88C6004C2BB9 /* SplashViewController.swift */,
 				66796B0E2A5E236E00B2880E /* LoginViewController.swift */,
 				66CB77BB2A5FA68100193128 /* EmailLoginViewController.swift */,
+				66CB77BD2A5FA73B00193128 /* GoogleLoginViewController.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				666F165C2A5D88C6004C2BB9 /* SplashViewController.swift in Sources */,
 				666F16582A5D88C6004C2BB9 /* AppDelegate.swift in Sources */,
 				666F165A2A5D88C6004C2BB9 /* SceneDelegate.swift in Sources */,
+				66CB77BE2A5FA73B00193128 /* GoogleLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
