@@ -1,14 +1,13 @@
 //
-//  EmailLoginViewController.swift
+//  ConfirmPasswordViewController.swift
 //  Makers
 //
-//  Created by Chinara on 7/12/23.
+//  Created by Chinara on 7/13/23.
 //
 
 import UIKit
-import SnapKit
 
-class EmailLoginViewController: UIViewController {
+class ConfirmPasswordViewController: UIViewController {
     
     private let logoImage: UIImageView = {
         let view = UIImageView()
@@ -16,18 +15,6 @@ class EmailLoginViewController: UIViewController {
         view.image = logoImage
         view.contentMode = .scaleAspectFit
         view.backgroundColor = .black
-        return view
-    } ()
-    
-    private let emailTextField: UITextField = {
-        let view = UITextField()
-        view.layer.cornerRadius = 10
-        view.attributedPlaceholder = NSAttributedString(
-            string: "Email",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
-        view.backgroundColor = .white
-        view.keyboardType = .emailAddress
-        view.autocorrectionType = .no
         return view
     } ()
     
@@ -42,19 +29,22 @@ class EmailLoginViewController: UIViewController {
         return view
     } ()
     
+    private let confirmPasswordTextField: UITextField = {
+        let view = UITextField()
+        view.layer.cornerRadius = 10
+        view.attributedPlaceholder = NSAttributedString(
+            string: "Confirm Password",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
+        view.backgroundColor = .white
+        view.isSecureTextEntry = true
+        return view
+    } ()
+    
     private let eyeButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         view.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
         view.addTarget(self, action: #selector(eyeButtonTapped), for: .touchUpInside)
-        return view
-    } ()
-    
-    private let forgotPasswordButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("Забыл пароль", for: .normal)
-        view.setTitleColor(.blue, for: .normal)
-        view.backgroundColor = .clear
         return view
     } ()
     
@@ -111,10 +101,9 @@ class EmailLoginViewController: UIViewController {
     private func setUpConstraints() {
         
         view.addSubview(logoImage)
-        view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(confirmPasswordTextField)
         view.addSubview(eyeButton)
-        view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
         view.addSubview(lineImage)
         view.addSubview(googleButton)
@@ -130,17 +119,8 @@ class EmailLoginViewController: UIViewController {
             make.height.equalTo(logoImage.snp.width).multipliedBy(logoAspectRatio)
         }
         
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(logoImage.snp.bottom).offset(5)
-            make.centerX.equalToSuperview()
-            let logoWidthMultiplier: CGFloat = 0.8
-            make.width.equalToSuperview().multipliedBy(logoWidthMultiplier)
-            let logoAspectRatio: CGFloat = 50.0 / 308.0
-            make.height.equalTo(emailTextField.snp.width).multipliedBy(logoAspectRatio)
-        }
-        
         passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.top.equalTo(logoImage.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
             let logoWidthMultiplier: CGFloat = 0.8
             make.width.equalToSuperview().multipliedBy(logoWidthMultiplier)
@@ -150,19 +130,26 @@ class EmailLoginViewController: UIViewController {
             passwordTextField.rightViewMode = .always
         }
         
-//        forgotPasswordButton.snp.makeConstraints { make in
-//            make.top.equalTo(passwordTextField.snp.bottom).offset(5)
-//            make.trailing.equalToSuperview()
+        confirmPasswordTextField.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            let logoWidthMultiplier: CGFloat = 0.8
+            make.width.equalToSuperview().multipliedBy(logoWidthMultiplier)
+            let logoAspectRatio: CGFloat = 50.0 / 308.0
+            make.height.equalTo(confirmPasswordTextField.snp.width).multipliedBy(logoAspectRatio)
+            confirmPasswordTextField.rightView = eyeButton
+            confirmPasswordTextField.rightViewMode = .always
+        }
         
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
             make.width.equalTo(logoImage.snp.width).multipliedBy(0.8)
             make.height.equalTo(loginButton.snp.width).multipliedBy(50.0 / 212.0)
         }
         
         lineImage.snp.makeConstraints { make in
-            make.top.equalTo(forgotPasswordButton.snp.bottom).offset(30)
+            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
             let logoWidthMultiplier: CGFloat = 0.8
             make.width.equalToSuperview().multipliedBy(logoWidthMultiplier)
@@ -178,16 +165,23 @@ class EmailLoginViewController: UIViewController {
             make.height.equalTo(googleButton.snp.width).multipliedBy(50.0 / 308.0)
         }
         
-        forgotPasswordButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).offset(5)
-            make.trailing.equalToSuperview()
-        }
-        
     }
     
     @objc private func eyeButtonTapped() {
-        passwordTextField.isSecureTextEntry.toggle()
-        eyeButton.isSelected = !passwordTextField.isSecureTextEntry
+        confirmPasswordTextField.isSecureTextEntry.toggle()
+        eyeButton.isSelected = !confirmPasswordTextField.isSecureTextEntry
     }
     
+    @objc private func textFieldPressed() {
+        passwordTextField.backgroundColor = .blue
+        passwordTextField.textColor = .white
+    }
+    
+    @objc private func loginButtonPressed() {
+        loginButton.backgroundColor = .blue
+        loginButton.setTitleColor(.white, for: .normal)
+        //        let nextVC = MainPageViewCOntroller()
+        //        navigationController?.pushViewController(nextVC, animated: true)
+        //    }
+    }
 }

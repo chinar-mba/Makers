@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 let window = UIWindow(windowScene: windowScene)
                 
-                let viewController = SplashViewController() //your start view
-                let navigation = UINavigationController(rootViewController: viewController)
+                let viewController = EmailLoginViewController() //your start view
+        let navigation = UINavigationController(rootViewController: viewController)
                 window.rootViewController = navigation
                 self.window = window
                 window.makeKeyAndVisible()
